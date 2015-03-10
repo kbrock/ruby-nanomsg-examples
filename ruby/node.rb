@@ -3,7 +3,8 @@ require 'nn-core'
 class Node
   NN = NNCore::LibNanomsg # shortcut
   SERVER_PROTOCOLS = [NNCore::NN_REP, NNCore::NN_BUS,
-                      NNCore::NN_PULL, NNCore::NN_PUB]
+                      NNCore::NN_PULL, NNCore::NN_PUB,
+                      NNCore::NN_SURVEYOR]
 
   def with_socket(domain, protocol, url, options = {})
     assert sock = NN.nn_socket(domain, protocol)
@@ -48,10 +49,13 @@ class Node
   def with_recv_string(sock, buf, fail_if_empty_msg = true)
     # some code wants an assert >=0 here
     bytes = NN.nn_recv(sock, buf, NNCore::NN_MSG, 0)
-    assert(bytes >= 0) if fail_if_empty_msg
-    if bytes >= 0
+    if bytes == Errno::ETIMEDOUT && ! fail_if_empty_msg
+      yield nil 
+    elsif bytes >=0
       yield buf.read_pointer.get_string(0, bytes)
       NN.nn_freemsg(buf.read_pointer)
+    elsif fail_if_empty_msg
+      assert(bytes >= 0)
     end
   end
 

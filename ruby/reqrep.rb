@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'nn-core'
-require_relative 'node'
 require 'time'
+require_relative 'node'
 
 class Node0 < Node
   DATE  = "DATE\0"

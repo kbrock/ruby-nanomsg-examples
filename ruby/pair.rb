@@ -11,7 +11,7 @@ class Node0 < Node
                 ) do |sock, buf|
       loop do
         with_recv_string(sock, buf, false) do |str|
-          puts "#{name}: RECEIVED \"#{str}\""
+          puts "#{name}: RECEIVED \"#{str}\"" if str
         end
         sleep(1)
         puts ("#{name}: SENDING \"#{name}\"\n");
