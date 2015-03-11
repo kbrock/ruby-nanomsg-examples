@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+
+# based upon the c examples found at https://github.com/dysinger/nanomsg-examples
+
 require 'nn-core'
 require_relative 'assert'
 

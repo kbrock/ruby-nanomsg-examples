@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
-require 'nn-core'
+
+# based upon the c examples found at https://github.com/dysinger/nanomsg-examples
+
 require_relative 'node'
 
 class Node0 < Node

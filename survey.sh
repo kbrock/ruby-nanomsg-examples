@@ -1,3 +1,6 @@
+
+# based upon the c examples found at https://github.com/dysinger/nanomsg-examples
+
 ./ruby/survey.rb server ipc:///tmp/survey.ipc & server=$!
 ./ruby/survey.rb client ipc:///tmp/survey.ipc client0 & client0=$!
 ./ruby/survey.rb client ipc:///tmp/survey.ipc client1 & client1=$!

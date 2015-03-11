@@ -1,3 +1,6 @@
+
+# based upon the c examples found at https://github.com/dysinger/nanomsg-examples
+
 ./ruby/bus.rb node0 ipc:///tmp/node0.ipc ipc:///tmp/node1.ipc ipc:///tmp/node2.ipc & node0=$!
 ./ruby/bus.rb node1 ipc:///tmp/node1.ipc ipc:///tmp/node2.ipc ipc:///tmp/node3.ipc & node1=$!
 ./ruby/bus.rb node2 ipc:///tmp/node2.ipc ipc:///tmp/node3.ipc & node2=$!

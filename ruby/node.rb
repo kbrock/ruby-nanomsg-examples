@@ -1,3 +1,6 @@
+# general parent class with shortcuts
+# for using nn-core, a nanomsg ffi wrapper
+
 require 'nn-core'
 
 class Node

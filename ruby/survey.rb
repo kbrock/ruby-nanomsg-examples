@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
-require 'nn-core'
+
+# based upon the c examples found at https://github.com/dysinger/nanomsg-examples
+
 require 'time'
 require_relative 'node'
 
